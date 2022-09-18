@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     
     resources :items,only:[:show, :index]
     
-    resources :customers,only:[:create, :index, :edit, :update]
+    resource :customers,only:[:create, :show, :edit, :update]
     get '/customers/unsubscribe' => "customers#unsubscrib"
     get '/customers/withdrawal' => "customers#withdrawal"
     
