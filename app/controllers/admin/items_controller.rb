@@ -8,8 +8,7 @@ class Admin::ItemsController < ApplicationController
     if @item.save
       redirect_to admin_item_path(@item.id)
     else
-      @item = Item.new
-      redirect_to :new
+      redirect_to  new_admin_item_path
     end
   end
 
