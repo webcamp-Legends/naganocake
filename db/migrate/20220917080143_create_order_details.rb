@@ -1,8 +1,8 @@
 class CreateOrderDetails < ActiveRecord::Migration[6.1]
   def change
     create_table :order_details do |t|
-      t.references :order_id,  null: false
-      t.references :item_id,   null: false
+      t.references :order,     null: false
+      t.references :item,      null: false
       t.integer :price,        null: false
       t.integer :amount,       null: false
       t.integer :making_status,null: false, default: "0"
