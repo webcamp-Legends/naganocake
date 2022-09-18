@@ -1,0 +1,12 @@
+ ja:
+    enums:
+      order:
+        payment_method:
+          credit_card: "クレジットカード"
+          transfer: "銀行振込"
+        oder_status:
+          payment_waiting
+          payment_confirmation
+          in_production
+          preparing_delivery
+          delivered
