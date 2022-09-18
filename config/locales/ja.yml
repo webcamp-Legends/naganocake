@@ -5,6 +5,7 @@
           credit_card: "クレジットカード"
           transfer: "銀行振込"
         oder_status:
+
           payment_waiting: "着手不可"
           payment_confirmation: "制作待ち"
           in_production: "製作中"
