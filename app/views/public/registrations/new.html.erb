@@ -2,6 +2,34 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
+  <div class="field">
+        <%= f.label :last_name,"(姓)" %>
+        <%= f.text_field :last_name, autofocus: true, maxlength: "8" %>
+        <%= f.label :first_name,"(名)" %>
+        <%= f.text_field :first_name, autofocus: true, maxlength: "8" %>
+  </div>
+      
+  <div class="field">
+        <%= f.label :last_name_kana,"(セイ)" %>
+        <%= f.text_field :last_name_kana, autofocus: true, maxlength: "8" %>
+        <%= f.label :first_name_kana,"(メイ)" %>
+        <%= f.text_field :first_name_kana, autofocus: true, maxlength: "8" %>
+  </div>
+  
+  <div class="field">
+        <%= f.label :post_code %> <em>(6 characters maximum)</em><br />
+        <%= f.text_field :post_code, autofocus: true, maxlength: "8" %>
+  </div>
+  
+  <div class="field">
+        <%= f.label :address %> <em>(6 characters maximum)</em><br />
+        <%= f.text_field :address, autofocus: true, maxlength: "8" %>
+  </div>
+  
+  <div class="field">
+        <%= f.label :phone_number %> <em>(6 characters maximum)</em><br />
+        <%= f.text_field :phone_number, autofocus: true, maxlength: "8" %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
