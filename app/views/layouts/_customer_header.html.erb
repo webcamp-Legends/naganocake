@@ -1,0 +1,22 @@
+<!--会員側ヘッダー-->
+<nav class ="navbar navbar-expand-lg border border-dark">
+  <div class ="container">
+    <div class="collapse navbar-collapse">
+      <h1 class="outline-secondary pb-auto"><%= image_tag 'nagano.png',size: "100x100" %></h1>
+        <ul class="navbar-nav ml-auto pb-5">
+          <li class="nav-item mr-3">
+            <%=link_to "マイページ",customers_path,class:"btn btn-outline-secondary" %>
+          </li>
+          <li class="nav-item mr-3">
+            <%= link_to "商品一覧",items_path,class:"btn btn-outline-secondary"%>
+          </li>
+          <li class="nav-item mr-3">
+            <%= link_to "カート",cart_items_path,class:"btn btn-outline-secondary" %>
+          </li>
+          <li class="nav-item mr-3">
+            <%= link_to "ログアウト",destroy_customer_session_path,method: :delete ,class:"btn btn-outline-secondary" %>
+          </li>
+        </ul>
+    </div>
+  </div>
+</nav>
