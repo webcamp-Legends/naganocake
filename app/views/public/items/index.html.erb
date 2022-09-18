@@ -1,2 +1,9 @@
-<h1>Public::Items#index</h1>
-<p>Find me in app/views/public/items/index.html.erb</p>
+<h3>商品一覧</h3><p>(全<%= @items.count %>件)</p>
+
+<% @items.each do |item| %>
+  <table>
+    <th><%= image_tag item.image,size: "100x100" %></th>
+    <th><%= item.name %></th>
+    <th>¥<%= (item.price* 1.08).round.to_s(:delimited) %></th>
+  </table>
+<% end %>
