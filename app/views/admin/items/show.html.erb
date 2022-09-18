@@ -4,29 +4,31 @@
 
       <h3>商品詳細</h3>
 
-        <%= image_tag @item.image(100, 100) %><br>
+        <%= image_tag @item.image,size: "100x100" %><br>
 
         <table>
-          <th>
-            <td>商品名</td>
-            <td><%= @item.name %></td>
-          </th>
-          <th>
-            <td>商品説明</td>
-            <td><%= @item.introduction %></td>
-          </th>
-          <th>
-            <td>ジャンル</td>
-            <td><%= @item.genre_id %></td>
-          </th>
-          <th>
-            <td>税込価格<br>(税抜き価格)</td>
-            <td><%= @item.price %></td>
-          </th>
-          <th>
-            <td>販売ステータス</td>
-            <td><%= @item.is_active %>(<%= @item.add_tax_price.to_s(:delimited) %>)円</td>
-          </th>
+          <body>
+            <tr>
+              <td>商品名</td>
+              <td><%= @item.name %></td>
+            </tr>
+            <tr>
+              <td>商品説明</td>
+              <td><%= @item.introduction %></td>
+            </tr>
+            <tr>
+              <td>ジャンル</td>
+              <td><%= @item.genre.name %></td>
+            </tr>
+            <tr>
+              <td>税込価格<br>(税抜き価格)</td>
+              <td><%= @item.price %>(<%= @item.add_tax_price.to_s(:delimited) %>)円</td>
+            </tr>
+            <tr>
+              <td>販売ステータス</td>
+              <td><%= @item.is_active_check %></td>
+            </tr>
+          </body>
 
           <%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-sm btn-success" %>
 
