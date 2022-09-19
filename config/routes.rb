@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  scope module: :public do
+    resource :customers,only:[:edit, :show, :update]
+  end
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -14,9 +17,9 @@ Rails.application.routes.draw do
     
     resources :items,only:[:show, :index]
     
-    resource :customers,only:[:create, :show, :edit, :update]
-    get '/customers/unsubscribe' => "customers#unsubscrib"
-    get '/customers/withdrawal' => "customers#withdrawal"
+    resource :customers,only:[:create]
+    get '/customers/unsubscribe' => "customers#unsubscribe"
+    patch '/customers/withdrawal' => "customers#withdrawal"
     
     resources :cart_items,only:[:create, :index, :update, :destroy]
     get '/cart_items/destroy_all' => "cart_items#destroy_all"
