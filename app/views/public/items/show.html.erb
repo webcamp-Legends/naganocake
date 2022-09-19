@@ -1,2 +1,25 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class="container">
+  <div class="row">
+
+      <div class="col-lg-3">
+        <%= image_tag @item.image,size: "200x200" %><br>
+      </div>
+
+      <div class="col">
+        <table>
+          <body>
+            <tr>
+              <td><%= @item.name %></td>
+            </tr>
+            <tr>
+              <td><%= @item.introduction %></td>
+            </tr>
+              <td>¥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</td>
+            </tr>
+          </body>
+        </table>
+
+      </div>
+
+  </div>
+</div>
