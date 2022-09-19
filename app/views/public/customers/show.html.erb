@@ -1,39 +1,51 @@
-<h1>Public::Customers#show</h1>
-<%= form_with model: @customer, url: customers_path do |f| %>
-<tr>
-  <td>氏名</td>
-  <td><%= f.label :last_name,"(姓)" %>
-        <%= f.text_field :last_name, autofocus: true, placeholder: '令和' %>
-  </td>
-  <td><%= f.label :first_name,"(名)" %>
-        <%= f.text_field :first_name,placeholder: '道子' %></td>
-  </tr>
-  <tr>
-  <td>フリガナ</td>
-  <td>
-    <%= f.label :last_name_kana,"(セイ)" %>
-    <%= f.text_field :last_name_kana,placeholder: 'レイワ' %>
-  </td>レイワ
-  <td>
-    <%= f.label :first_name_kana,"(メイ)" %>
-    <%= f.text_field :first_name_kana,placeholder: 'ミチコ' %>
-  </td>
-  <tr>
-    <td><%= f.label :email,"メールアドレス" %></td>
-    <td><%= f.email_field :email, autocomplete: "email",placeholder: 'sample@example.com' %></td>
-  </tr> 
-  <tr>
-    <td><%= f.label :post_code,"郵便番号" %>
-    </td>
-    <td><%= f.text_field :post_code,placeholder: '0000000' %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :address,"住所(ハイフンなし)" %></td>
-    <td><%= f.text_field :address, :size=>"60" ,placeholder: '東京都渋谷代々木神園町0-0'%></td>
-  </tr> 
-  <tr>
-    <td><%= f.label :phone_number,"電話番号(ハイフンなし)" %></td>
-    <td><%= f.text_field :phone_number,placeholder: '00000000000' %></td>
-  </tr> 
+<h3>マイページ</h3>
+<h5>登録情報<%= link_to "編集する", edit_customers_path,class: 'btn btn-success' %></h5>
+<table class="table table-bordered ">
+  <colgroup>
+      <col class="col-md-3">
+      <col class="col-md-7">
+  </colgroup>
+  <body>
+    <tr>
+      <td class="table-secondary">氏名</td>
+      <td>
+        <%= @customer.last_name %>
+        <%= @customer.first_name %>
+      </td>
+    </tr>
+    <tr>
+      <td class="table-secondary">カナ</td>
+      <td>
+        <%= @customer.last_name_kana %>
+        <%= @customer.first_name_kana %>
+      </td>
+    </tr>
+    <tr>
+      <td class="table-secondary">郵便番号</td>
+      <td>
+        <%= @customer.post_code %>
+      </td>
+    </tr>
+    <tr>
+      <td class="table-secondary">住所</td>
+      <td>
+        <%= @customer.address %>
+      </td>
+    </tr>
+    <tr>
+      <td class="table-secondary">電話番号</td>
+      <td>
+        <%= @customer.phone_number %>
+      </td>
+    </tr>
+    <tr>
+      <td class="table-secondary">メールアドレス</td>
+      <td>
+        <%= @customer.email %>
+      </td>
+    </tr>
+  </body>
+</table>
 
-<% end %>
+<h5>配送先<%= link_to "配送一覧", addresses_path,class: 'btn btn-primary' %></h5>
+<h5>注文履歴<%= link_to "配送一覧", edit_customers_path,class: 'btn btn-primary' %></h5>
