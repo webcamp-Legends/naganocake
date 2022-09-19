@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   validates :is_active, presence: true
 
   def add_tax_price
-    (self.price * 1.08).round
+    (self.price * 1.1).round
   end
 
   def is_active_check

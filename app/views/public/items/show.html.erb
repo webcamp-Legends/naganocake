@@ -16,9 +16,20 @@
             </tr>
               <td>¥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</td>
             </tr>
+            <tr>
+              <td>
+                <%= form_with model: @cart_item,method: :post,multipart: true do |f| %>
+                  <%=f.hidden_field :name, :value =>@item.name %>
+                  <%=f.hidden_field :item_id, :value =>@item.id %>
+                  <%=f.hidden_field :customer_id, :value =>current_customer.id%>
+                  
+                  <%= f.select :amount, *[1..9] %>
+                  <%= f.submit "カートに追加"%>
+                <% end %>
+              </td>
+            </tr>
           </body>
         </table>
-
       </div>
 
   </div>
