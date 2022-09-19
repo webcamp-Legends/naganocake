@@ -1,24 +1,4 @@
 <span class="bg-secondary px-1">ショッピングカート</p>
 
-<% @cart_items.each do |cart_items| %>
-      <table>
-          <tr>
-            <td>
-              <%= image_tag cart_items.image,size: "100x100" %>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <%= link_to cart_items.name, class: "text-dark" %>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              ¥<%= link_to (cart_items.price* 1.08).round.to_s(:delimited), class: "text-dark" %>
-            </td>
-          </tr>
-          <tr>
-            <td> <%=cart_items.amount %> </td>
-          </tr>
-      </table>
+
     <% end %>
