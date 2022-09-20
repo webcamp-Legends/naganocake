@@ -29,7 +29,15 @@
             </tr>
             <tr>
               <td>販売ステータス　</td>
-              <td><%= @item.is_active_check %></td>
+              <td><% if @item.is_active == true %>
+              <p class= "text-success my-auto">
+                <%= @item.is_active_check %>
+              </p>
+            <% else %>
+              <p class= "text-black-50 my-auto">
+                <%= @item.is_active_check %>
+              </p>
+            <% end %></td>
             </tr>
 
           </body>
