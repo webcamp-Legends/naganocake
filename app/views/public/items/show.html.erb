@@ -22,7 +22,7 @@
                   <%=f.hidden_field :name, :value =>@item.name %>
                   <%=f.hidden_field :item_id, :value =>@item.id %>
                   <%=f.hidden_field :customer_id, :value =>current_customer.id%>
-                  
+                  <%=f.hidden_field :image, :value =>@item.image %>
                   <%= f.select :amount, *[1..9] %>
                   <%= f.submit "カートに追加"%>
                 <% end %>
@@ -31,6 +31,5 @@
           </body>
         </table>
       </div>
-
   </div>
 </div>
