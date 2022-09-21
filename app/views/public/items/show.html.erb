@@ -21,10 +21,14 @@
                 <%= form_with model: @cart_item,method: :post,multipart: true do |f| %>
                   <%=f.hidden_field :name, :value =>@item.name %>
                   <%=f.hidden_field :item_id, :value =>@item.id %>
-                  <%=f.hidden_field :customer_id, :value =>current_customer.id%>
+                  <!--ログインしていない場合-->
+                  <% unless current_customer.present? %>
+                  <% else %>
+                    <%=f.hidden_field :customer_id, :value =>current_customer.id%>
                   <%=f.hidden_field :image, :value =>@item.image %>
                   <%= f.select :amount, *[1..9] %>
                   <%= f.submit "カートに追加"%>
+                  <% end %>
                 <% end %>
               </td>
             </tr>
