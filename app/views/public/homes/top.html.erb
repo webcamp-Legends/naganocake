@@ -1,29 +1,27 @@
+  <table class="table align-middle">
+    <thead>
+      <th>ジャンル</th>
+    </thead>
 
+    <% @genres.each do |genre| %>
+      <tbody>
+        <tr><td><%= genre.name %></td></tr>
+        <% end %>
+      </tbody>
+  </table>  
 <div class ="container">
-  <div class = "row" >
-    <div class ="col-3">
-      <table cass = "table">
-        <thead>
-          <th>ジャンル</th>
-        </thead>
+  <div class ="row">
 
-          <% @genres.each do |genre| %>
-          <tbody>
-          <tr><td><%= genre.name %></td></tr>
-          <% end %>
-        </tbody>
-      </table>
+    <div class ="card  mt-5 d-flex mx-auto" style="max-width: 800px">
+      <%= image_tag 'top.png', class: "card-img mx-auto" %>
+      <p class ="text-light card-img-overlay d-flex align-items-end justify-content-end ">
+      ようこそながのCAKEへ!<br>
+      このサイトは、ケーキ販売のECサイトになります。<br>
+      会員でない方も商品の閲覧はできますが、<br>
+      購入には会員登録が必要になります。</p>
     </div>
-  </div>
+    </div>
 
-  <div class ="card  mt-5 d-flex mx-auto" style="max-width: 800px">
-    <%= image_tag 'top.png', class: "card-img mx-auto" %>
-    <p class ="text-light card-img-overlay d-flex align-items-end justify-content-end ">
-    ようこそながのCAKEへ!<br>
-    このサイトは、ケーキ販売のECサイトになります。<br>
-    会員でない方も商品の閲覧はできますが、<br>
-    購入には会員登録が必要になります。</p>
-  </div>
 
   <h5 class ="col-3 mt-4 text-right">新着商品</h5>
   <div class ="row d-flex justify-content-center">
