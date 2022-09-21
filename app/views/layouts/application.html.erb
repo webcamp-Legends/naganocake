@@ -15,11 +15,13 @@
       <%if admin_signed_in? %>
         <%= render "layouts/admin_header" %>
       <% elsif customer_signed_in? %>
-        <%= render "layouts/customer_header" %>    
+        <%= render "layouts/customer_header" %>
       <% else %>
         <%= render "layouts/before_login" %>
       <% end %>
     </header>
     <%= yield %>
   </body>
+  <footer>
+  </footer>
 </html>
