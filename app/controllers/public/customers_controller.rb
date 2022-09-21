@@ -15,7 +15,7 @@ class Public::CustomersController < ApplicationController
 
   def unsubscribe
   end
-  
+
   def update
     @customer = current_customer
     if @customer.update(customer_params)
