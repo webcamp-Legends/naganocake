@@ -1,2 +1,9 @@
-<h1>Public::Addresses#edit</h1>
-<p>Find me in app/views/public/addresses/edit.html.erb</p>
+<%= form_with model: @address,url: address_path do |f| %>
+郵便番号
+<%= f.text_field :postcode %>
+住所
+<%= f.text_field :address %>
+名前
+<%= f.text_field :name %>
+<%= f.submit '変更を保存', class: 'btn btn-success' %>
+<% end %>
