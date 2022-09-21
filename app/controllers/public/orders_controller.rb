@@ -1,7 +1,7 @@
 class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
-    @address = Customer.find_by(current_customer.address)
+    @address = current_customer.address
   end
 
   def index
@@ -15,10 +15,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+    @order = Order.find(params[:id])
   end
 
   def create
-    @order = Order.new
+    @order = Order.new(order_params)
     if @order.save
       redirect_to orders_thanks_path
     else
@@ -30,6 +31,6 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:customer_id, :post_code, :address, :name, :shipping_cost, :payment_method)
+    params.require(:order).permit(:customer_id, :post_code, :address, :name, :shipping_cost, :payment_method, :total_payment, :order_status)
   end
 end
