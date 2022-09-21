@@ -11,7 +11,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 mx-auto">
-      <table class="table border">
+      <table class="table border border-0">
         <thead>
           <th>商品名</th>
           <th>単価(税込み)</th>
@@ -42,7 +42,7 @@
       <%=link_to "買い物を続ける", items_path,class:"btn btn-primary ml-5 " %>
     </div>
     <div class="col-4">
-      <table class="table border mr-3">
+      <table class="table table-bordered table-border-dark">
         <tr>
           <th>合計金額</th>
           <th><%= @total_payment %></th>
