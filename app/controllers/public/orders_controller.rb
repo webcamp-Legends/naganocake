@@ -18,6 +18,13 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    @order = Order.new
+    if @order.save
+      redirect_to orders_thanks_path
+    else
+       @order = Order.new
+       render "confirm"
+    end
   end
 
   private
