@@ -1,2 +1,3 @@
-<h1>Public::Orders#confirm</h1>
-<p>Find me in app/views/public/orders/confirm.html.erb</p>
+<%= form_with model: @order,url: orders_path,method: :post  do |f| %>
+<%= f.submit "注文を確定する",class: 'btn btn-success' %>
+<% end %>
