@@ -1,15 +1,26 @@
-<div class ="container mt-5">
-  <div class ="row align-items-end">
-    <h3 >商品一覧</h3><p>　(全<%= @items.count %>件)</p>
+<div class ="container-fluid d-flex">
+  <div class ="row">
+    <div class ="col mt-5 ml-4">
+      <%= render "public/items/genre" %>
+    </div>
   </div>
-      <div class ="row ms-auto">
+
+  <div class ="row align-items-end">
+
+    <div class ="container-fluid">
+      <div class ="row">
+        <div class ="col-4 d-flex justify-content-end">
+          <h3 class ="ml-5">商品一覧</h3><p>　(全<%= @items.count %>件)</p>
+        </div>
+      </div>
+    </div>
 
         <% @items.each do |item| %>
-          <table class = "col-3 pl-15">
+          <table class = "col-2 pl-15 offset-2">
             <tr>
               <td>
                 <%= link_to item_path(item.id) do %>
-                  <%= image_tag item.image,size: "200x200" %>
+                  <%= image_tag item.image,size: "150x150" %>
                 <% end %>
               </td>
             </tr>
