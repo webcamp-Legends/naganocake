@@ -35,11 +35,11 @@ class Public::CartItemsController < ApplicationController
     @cart_item.save
     redirect_to :cart_items
   end
-  
+
   private
-  
+
   def cart_item_params
     params.require(:cart_item).permit(:images,:item_id, :amount, :customer_id )
   end
-  
+
 end
