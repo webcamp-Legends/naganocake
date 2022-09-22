@@ -32,14 +32,9 @@
                   <%=f.hidden_field :customer_id, :value =>current_customer.id%>
                 <%=f.hidden_field :image, :value =>@item.image %>
                 <%= f.select :amount, *[1..9] %>
-                <%= f.submit "カートに追加"%>
+                <%= f.submit "カートに追加" ,class: "btn btn-sm btn-outline-dark"%>
                 <% end %>
               </td>
-            <tr>
-              <td>
-                <%= f.submit "カートに追加" ,class: "btn btn-sm btn-outline-dark"%>
-              </td>
-            </tr>
               <% end %>
 
           </tr>
