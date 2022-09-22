@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <div class ="wrapper">
     <header>
       <%if admin_signed_in? %>
         <%= render "layouts/admin_header" %>
@@ -20,9 +21,11 @@
         <%= render "layouts/before_login" %>
       <% end %>
     </header>
-    <%= yield %>
+    <main class ="main_body">
+      <%= yield %>
+    </main>
+    <footer class="footer">
+    </footer>
+    </div>
   </body>
-  <footer>
-    <div class = "footer_design"></div>
-  </footer>
 </html>
