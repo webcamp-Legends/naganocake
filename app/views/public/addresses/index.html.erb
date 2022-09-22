@@ -1,6 +1,6 @@
 <%= form_with model: @address,url: addresses_path do |f| %>
 郵便番号
-<%= f.text_field :postcode %>
+<%= f.text_field :post_code %>
 住所
 <%= f.text_field :address %>
 名前
@@ -20,7 +20,7 @@
   <tbody>
     <% @addresses.each do |f| %>
       <tr>
-        <td><%= f.postcode %></td>
+        <td><%= f.post_code %></td>
         <td><%= f.address %></td>
         <td><%= f.name %></td>
         <td>
