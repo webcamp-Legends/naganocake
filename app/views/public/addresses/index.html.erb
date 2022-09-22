@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+<%= form_with model: @address,url: addresses_path do |f| %>
+郵便番号
+<%= f.text_field :post_code %>
+住所
+<%= f.text_field :address %>
+名前
+<%= f.text_field :name %>
+=======
 <div class="container">
   <div class="col-md-7 mb-5 mt-5">
     <h3>配送先/登録一覧</h3>
@@ -40,6 +49,7 @@
 
 
 
+>>>>>>> origin/develop
 <%= f.submit '新規登録', class: 'btn btn-success' %>
 <% end %>
 
@@ -55,7 +65,7 @@
   <tbody>
     <% @addresses.each do |f| %>
       <tr>
-        <td><%= f.postcode %></td>
+        <td><%= f.post_code %></td>
         <td><%= f.address %></td>
         <td><%= f.name %></td>
         <td>
