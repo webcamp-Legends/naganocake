@@ -7,6 +7,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @item = Oder.all
+    @address = Adress.all
+    @total_payment
   end
 
   def show
