@@ -1,15 +1,15 @@
-<div class="container">
+<div class="container mt-5">
 
   <h3>商品詳細</h3>
 
-  <div class="row">
+  <div class="row d-flex justify-content-center">
 
-      <div class="col-lg-3">
-        <%= image_tag @item.image,size: "200x200" %><br>
+      <div class="col-lg-3 d-flex justify-content-center">
+        <%= image_tag @item.image,size: "400x400" %><br>
       </div>
 
-      <div class="col">
-        <table>
+      <div class="col-lg-5 d-flex justify-content-center">
+        <table class = "table-sm">
           <body>
             <tr>
               <td>商品名</td>
@@ -40,11 +40,13 @@
             <% end %></td>
             </tr>
 
+            <tr>
+              <td><%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-sm btn-outline-success" %></td>
+            </tr>
+
           </body>
 
         </table>
-
-        <%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-sm btn-success" %>
 
       </div>
 
