@@ -11,31 +11,15 @@
   background-color: #000000;
  }
 
- body {
-  overflow: scroll;
- }
-
- .pagination {
+.pagination {
   justify-content: center;
   margin-top: 30px;
- }
+}
 
- .main-image{
-  margin-top: 10px;
-  position: relative;
- }
-
- .top-p{
-  position: absolute;
-  color: white;
-  bottom: 0;
-  right: 190px;
- }
-
- .about-image-vw{
+.about-image-vw{
   width : 30vw;
   height: auto;
- }
+}
 
 .cart_tag{
   background-color :red;
