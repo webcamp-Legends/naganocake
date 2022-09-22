@@ -9,16 +9,16 @@
           <td><%= f.file_field :image, accept: "image/*" %></td>
         </tr>
         <tr>
-          <td><%= f.label :name,"商品名" %> <%= f.text_field :name %></td>
+          <td><%= f.label :name,"商品名　" %> <%= f.text_field :name %></td>
         </tr>
         <tr>
-          <td><%= f.label :introduction,"商品説明" %> <%= f.text_field :introduction %></td>
+          <td><%= f.label :introduction,"商品説明　" %> <%= f.text_field :introduction %></td>
         </tr>
         <tr>
-          <td><%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: "選択してください" %><br></td>
+          <td><%= f.label :genre_id,"ジャンル　" %><%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: "選択してください" %><br></td>
         </tr>
         <tr>
-          <td><%= f.label :price,"税抜き価格" %> <%= f.text_field :price %>円</td>
+          <td><%= f.label :price,"税抜き価格　" %> <%= f.text_field :price %>円</td>
         </tr>
         <tr>
           <td><%= f.radio_button :is_active, :true, checked: true %> <%= f.label :is_active_true,"販売中" %></td>
@@ -27,7 +27,7 @@
           <td><%= f.radio_button :is_active, :false %> <%= f.label :is_active_false, "販売停止中" %></td>
         </tr>
       </table>
-      <%= f.submit "新規登録", class: "btn btn-sm btn-success" %>
+      <%= f.submit "新規登録", class: "btn btn-sm btn-outline-success" %>
       <% end %>
     </div>
   </div>

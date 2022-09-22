@@ -1,11 +1,11 @@
-  <table class="table align-middle">
+  <table class="table-sm table-dark table-striped">
     <thead>
-      <th>ジャンル</th>
+      <th>　　ジャンル　　</th>
     </thead>
 
     <% @genres.each do |genre| %>
       <tbody>
-        <tr><td><%= genre.name %></td></tr>
-        <% end %>
+        <tr><td class= "text-center"><%= genre.name %></td></tr>
       </tbody>
+    <% end %>
   </table>
