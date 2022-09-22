@@ -7,13 +7,14 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @item = Oder.all
+    @address = Adress.all
+    @total_payment
   end
 
   def show
     @order=Order.find(params[:id])
-
-
-
+    @order_details=@order.order_details.all
   end
 
   def thanks
@@ -29,7 +30,7 @@ class Public::OrdersController < ApplicationController
       @address = Address.find(params[:order][:address_id])
       @order.post_code = @address.post_code
       @order.address = @address.address
-      @order.name = @address.last_name + first_name
+      @order.name = @address.name
     elsif params[:order][:select_address] == "2"
       @order.customer_id = current_customer.id
     end
@@ -41,20 +42,16 @@ class Public::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.save
-    @order_details = OrderDetail.new
-    current_customer.orders.each do |current_customer_order|
-     @order_details.order_id = current_customer_order.id
-    end
-
     @cart_items = current_customer.cart_items.all
     @cart_items.each do |cart_item|
+      @order_details = OrderDetail.new
       @order_details.item_id = cart_item.item.id
       @order_details.price = cart_item.item.price
-
+      @order_details.order_id =@order.id
       @order_details.amount = cart_item.amount
       @order_details.save
     end
-    redirect_to orders_thanks_path
+      redirect_to orders_thanks_path
   end
 
   private
