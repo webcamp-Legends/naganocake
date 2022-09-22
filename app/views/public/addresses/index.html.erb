@@ -5,47 +5,32 @@
     
     <%= form_with model: @address,url: addresses_path do |f| %>
     <div class="row">
-      <div class="col-4">
+      <div class="col">
         <table class="table table-borderless">
           <tr>
-            <td>
-              郵便番号<%= f.text_field :postcode %>
+            <td><%= f.label :post_code,"郵便番号" %>
             </td>
-            <td>
-              住所<%= f.text_field :address %>
+            <td><%= f.text_field :post_code,placeholder: '0000000' %></td>
           </tr>
           <tr>
+            <td><%= f.label :address,"住所(ハイフンなし)" %></td>
+            <td><%= f.text_field :address, :size=>"46" ,placeholder: '東京都渋谷代々木神園町0-0'%></td>
+          </tr> 
+          <tr>
             <td>
-              名前<%= f.text_field :name %>
+              <%= f.label :address,"住所(ハイフンなし)" %></td>
+            <td>
+              <%= f.text_field :name,placeholder: '宛名' %>
             </td>
           </tr>
         </table>
       </div>
     </div>
-    <%= f.submit "ログイン",class: 'btn btn-outline-success' %>
+    <%= f.submit "新規登録",class: 'btn btn-outline-success' %>
     <% end %>
-
-
-<h5>会員登録がお済みでない方</h5>
-<p><%= render "public/shared/links" %>から新規登録を行ってください</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-<%= f.submit '新規登録', class: 'btn btn-success' %>
-<% end %>
-
 <table class='table table-inverse'>
 　<thead>
-    <tr class="table-primary">
+    <tr>
       <th>郵便番号</th>
       <th>住所</th>
       <th>宛名</th>
@@ -55,12 +40,12 @@
   <tbody>
     <% @addresses.each do |f| %>
       <tr>
-        <td><%= f.postcode %></td>
+        <td><%= f.post_code %></td>
         <td><%= f.address %></td>
         <td><%= f.name %></td>
         <td>
-          <%= link_to '編集する', edit_address_path(f), class: 'btn btn-success' %>
-          <%= link_to '消去する', address_path(f),method: :delete, class: 'btn btn-danger' %>
+          <%= link_to '編集する', edit_address_path(f), class: 'btn btn-outline-success' %>
+          <%= link_to '消去する', address_path(f),method: :delete, class: 'btn btn-outline-danger' %>
         </td>
       </tr>
     <% end %>

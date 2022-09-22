@@ -7,6 +7,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @item = Oder.all
+    @address = Adress.all
+    @total_payment
   end
 
   def show
@@ -27,7 +30,7 @@ class Public::OrdersController < ApplicationController
       @address = Address.find(params[:order][:address_id])
       @order.post_code = @address.post_code
       @order.address = @address.address
-      @order.name = @address.last_name + first_name
+      @order.name = @address.name
     elsif params[:order][:select_address] == "2"
       @order.customer_id = current_customer.id
     end
