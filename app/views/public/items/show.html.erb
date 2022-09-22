@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
 
-      <div class="col-lg-6">
-        <%= image_tag @item.image,size: "300x300" %><br>
+      <div class="col-lg-3">
+        <%= image_tag @item.image,size: "200x200" %><br>
       </div>
 
-      <div class="col-lg-offset-3 col-lg-3 my-auto">
-        <table class ="table table-borderless">
+      <div class="col">
+        <table>
           <body>
             <tr>
               <td><%= @item.name %></td>
@@ -27,12 +27,8 @@
                     <%=f.hidden_field :customer_id, :value =>current_customer.id%>
                   <%=f.hidden_field :image, :value =>@item.image %>
                   <%= f.select :amount, *[1..9] %>
-<<<<<<< HEAD
-                  <%= f.submit "カートに追加" ,class: "btn btn-sm btn-outline-dark"%>
-=======
                   <%= f.submit "カートに追加"%>
                   <% end %>
->>>>>>> 3a7b0462f21ea5eae5c18b6f4df7d3bc2fdf3a3f
                 <% end %>
               </td>
             </tr>
