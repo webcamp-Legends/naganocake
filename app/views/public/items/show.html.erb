@@ -1,8 +1,9 @@
 <div class="container">
   <div class="row">
 
-      <div class="col-lg-3">
-        <%= image_tag @item.image,size: "200x200" %><br>
+
+      <div class="col-lg-6 mt-5">
+        <%= image_tag @item.image,size: "300x300" %><br>
       </div>
 
       <div class="col">
@@ -27,7 +28,7 @@
                     <%=f.hidden_field :customer_id, :value =>current_customer.id%>
                   <%=f.hidden_field :image, :value =>@item.image %>
                   <%= f.select :amount, *[1..9] %>
-                  <%= f.submit "カートに追加"%>
+                  <%= f.submit "カートに追加",class:"btn btn-outline-success"%>
                   <% end %>
                 <% end %>
               </td>
