@@ -1,5 +1,5 @@
 <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer' do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
+<%= render "public/shared/error_messages", resource: resource %>
 <div class="container">
   <div class="col-md-3 mb-5 mt-5">
     <h3>新規会員登録</h3>
@@ -57,8 +57,6 @@
         </td>
       </tr>
     </table>
-    
-  <h3>既に登録済みの方</h3>
-    
+    <h3>既に登録済みの方</h3>
     <p><%= render "public/shared/links" %>からお願いします</p>
 </div>
