@@ -22,9 +22,9 @@
           <td><%=@order.payment_method_i18n %></td>
         </tr>
         <tr>
-          <td>
-            ステータス
-          </td>
+          <th>
+            注文ステータス
+          </th>
           <td>
             <%=@order.order_status_i18n %>
           </td>
@@ -39,7 +39,7 @@
           <td>
             商品合計
           </td>
-          <td>
+          <td style="width:50%">
             <%=@order.total_payment.to_s(:delimited)%>
           </td>       
         </tr>
