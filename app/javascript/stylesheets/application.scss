@@ -11,42 +11,44 @@
   background-color: #000000;
  }
 
-// .pagination {
-//   justify-content: center;
-//   margin-top: 30px;
-// }
 
-// .main-image{
-//   margin-top: 10px;
-//   position: relative;
-// }
+ .pagination {
+  justify-content: center;
+  margin-top: 30px;
+ }
 
-// .top-image-vw{
-//   width : 50vw ;
-//   height: auto;
-//   }
+ .main-image{
+  margin-top: 10px;
+  position: relative;
+ }
 
-// .top-p{
-//   position: absolute;
-//   color: white;
-//   bottom: 0;
-//   right: 190px;
-// }
+ .top-image-vw{
+   width : 50vw ;
+   height: auto;
+  }
 
-// .about-image-vw{
-//   width : 30vw;
-//   height: auto;
-// }
+ .top-p{
+  position: absolute;
+  color: white;
+  bottom: 0;
+  right: 190px;
+ }
 
-// footer {
-//   background-color: #000000;
-//   width: 100%;
-//   height: 60px;
-//   margin-top: 50px;
-//   bottom: 0;
-//   position: fixed;
-// }
+ .about-image-vw{
+  width : 30vw;
+  height: auto;
+ }
+ main {
+   min-height: 100vh;
+   position: relative;
+   padding: 200px 0;
+ }
+ 
+ footer {
+  background-color: #000000;
+  height: 50px;
+ }
 
-// .cart_tag{
-//   background-color :red;
-// }
+.cart_tag{
+  background-color :red;
+}
