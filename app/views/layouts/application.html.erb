@@ -9,10 +9,8 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <div class ="wrapper">
-    <header>
+    <header class="fixed-top">
       <%if admin_signed_in? %>
         <%= render "layouts/admin_header" %>
       <% elsif customer_signed_in? %>
@@ -21,12 +19,11 @@
         <%= render "layouts/before_login" %>
       <% end %>
     </header>
-    <main class ="main_body">
+    <main>
       <%= yield %>
     </main>
-    <footer class="footer">
+    <footer class="fixed-bottom">
     </footer>
-    </div>
   </body>
 </html>
 
