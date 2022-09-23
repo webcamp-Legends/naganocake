@@ -1,0 +1,11 @@
+  <table class="table-sm table-dark table-striped">
+    <thead>
+      <th>　　ジャンル　　</th>
+    </thead>
+
+    <% @genres.each do |genre| %>
+      <tbody>
+        <tr><td class= "text-center"><%= genre.name %></td></tr>
+      </tbody>
+    <% end %>
+  </table>

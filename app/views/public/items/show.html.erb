@@ -1,40 +1,46 @@
-<div class="container">
-  <div class="row">
+<div class ="container-fluid d-flex">
+  <div class ="row">
+    <div class ="col mt-5 ml-4">
+      <%= render "public/items/genre" %>
+    </div>
+  </div>
+  <div class ="container">
+    <div class ="row d-flex justify-content-center">
+    <div class="col-lg-4 mt-5 pt-5">
+      <%= image_tag @item.image,size: "300x300" %>
+    </div>
 
-
-      <div class="col-lg-6 mt-5">
-        <%= image_tag @item.image,size: "300x300" %><br>
-      </div>
-
-      <div class="col">
-        <table>
-          <body>
-            <tr>
-              <td><%= @item.name %></td>
-            </tr>
-            <tr>
-              <td><%= @item.introduction %></td>
-            </tr>
-              <td>¥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</td>
-            </tr>
-            <tr>
-              <td>
-                <%= form_with model: @cart_item,method: :post,multipart: true do |f| %>
-                  <%=f.hidden_field :name, :value =>@item.name %>
-                  <%=f.hidden_field :item_id, :value =>@item.id %>
-                  <!--ログインしていない場合-->
-                  <% unless current_customer.present? %>
-                  <% else %>
-                    <%=f.hidden_field :customer_id, :value =>current_customer.id%>
-                  <%=f.hidden_field :image, :value =>@item.image %>
-                  <%= f.select :amount, *[1..9] %>
-                  <%= f.submit "カートに追加",class:"btn btn-outline-success"%>
-                  <% end %>
+    <div class="col-lg-3 d-flex">
+      <table class ="table-sm">
+        <body>
+          <tr>
+            <td><%= @item.name %></td>
+          </tr>
+          <tr>
+            <td><%= @item.introduction %></td>
+          </tr>
+            <td>¥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</td>
+          </tr>
+          <tr>
+            <td>
+              <%= form_with model: @cart_item,method: :post,multipart: true do |f| %>
+                <%=f.hidden_field :name, :value =>@item.name %>
+                <%=f.hidden_field :item_id, :value =>@item.id %>
+                <!--ログインしていない場合-->
+                <% unless current_customer.present? %>
+                <% else %>
+                  <%=f.hidden_field :customer_id, :value =>current_customer.id%>
+                <%=f.hidden_field :image, :value =>@item.image %>
+                <%= f.select :amount, *[1..9] %>
+                <%= f.submit "カートに追加" ,class: "btn btn-sm btn-outline-dark"%>
                 <% end %>
               </td>
-            </tr>
-          </body>
-        </table>
-      </div>
-  </div>
+              <% end %>
+
+          </tr>
+        </body>
+      </table>
+    </div>
+</div>
+</div>
 </div>
