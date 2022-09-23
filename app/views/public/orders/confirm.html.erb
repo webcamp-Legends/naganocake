@@ -18,6 +18,7 @@
         </thead>
 
         <% @sum = 0 %>
+        <% @total = 0 %>
 
         <% @cart_items.each do |cart_item| %>
 
@@ -31,6 +32,7 @@
             <% (@sum = cart_item.subtotal) %>
             <td><%= @sum.to_s(:delimited) %></td>
           </tr>
+        <% (@total += cart_item.subtotal) %>
         <% end %>
       </table>
     </div>
@@ -43,11 +45,11 @@
         </tr>
         <tr>
           <td class = "table-dark" style="width: 40%">商品合計</td>
-          <td style="width: 40%"><%= @sum.to_s(:delimited) %></td>
+          <td style="width: 40%"><%= @total %></td>
         </tr>
         <tr>
           <td class = "table-dark" style="width: 40%">請求金額</td>
-          <td style="width: 40%"><%= (@sum + 800).to_s(:delimited) %></td>
+          <td style="width: 40%"><%= (@total + 800).to_s(:delimited) %></td>
         </tr>
       </table>
     </div>
