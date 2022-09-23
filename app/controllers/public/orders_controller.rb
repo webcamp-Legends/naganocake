@@ -15,14 +15,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-
-    if current_customer.cart_items.count != 0
-      @order = current_customer.orders.find(params[:id])
-      @order_details=@order.order_details.all
-    else
-      redirect_to root_path
-    end
-
+    @order = current_customer.orders.find(params[:id])
+    @order_details=@order.order_details.all
   end
 
   def thanks
@@ -45,17 +39,16 @@ class Public::OrdersController < ApplicationController
       end
       @cart_items = current_customer.cart_items
       @order_new = Order.new
-      render:confirm
     else
       redirect_to root_path
     end
+    @order.save
     @cart_items = current_customer.cart_items
     @order_new = Order.new
   end
 
   def create
     @order = Order.new(order_params)
-    
     @order.save
     @cart_items = current_customer.cart_items.all
       @cart_items.each do |cart_item|
