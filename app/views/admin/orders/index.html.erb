@@ -26,9 +26,11 @@
             <td class = "align-middle"><%= order.name %></td>
 
             <td class = "align-middle">
+              <% @amount = 0 %>
               <% order.order_details.each do |item| %>
-            		<%= item.amount %>
+                <% (@amount += item.amount).to_s %>
             	<% end %>
+          		<%= @amount %>
             </td>
             <td class = "align-middle"><%= order.order_status_i18n %></td>
         <% end %>
