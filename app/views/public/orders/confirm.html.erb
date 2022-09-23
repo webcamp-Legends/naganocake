@@ -6,47 +6,53 @@
   </div>
 
   <div class="row col-12 px-0">
-    <div class="col">
-      <table>
+    <div class="col-7 d-flex">
+      <table class = "table table-bordered ">
+        <thead>
         <tr>
-          <td>商品名</td>
-          <td>単価</td>
-          <td>数量</td>
-          <td>小計</td>
+          <td class = "table-dark">商品名</td>
+          <td class = "table-dark">単価(税込)</td>
+          <td class = "table-dark">数量</td>
+          <td class = "table-dark">小計</td>
         </tr>
-      
+        </thead>
+
         <% @sum = 0 %>
-      
+
         <% @cart_items.each do |cart_item| %>
-      
+
           <tr>
             <td>
               <%=image_tag cart_item.item.image,size:"100x100" %>
               <%= cart_item.item.name %>
             </td>
-            <td><%= cart_item.item.price %></td>
+            <td><%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
             <td><%= cart_item.amount %></td>
-            <% @sum += cart_item.subtotal %>
+            <% (@sum += cart_item.subtotal).to_s(:delimited) %>
             <td><%= @sum %></td>
           </tr>
         <% end %>
       </table>
-      
-      <table>
+    </div>
+
+    <div class="col-4 offset-1">
+      <table class ="table-sm table-bordered ">
         <tr>
-          <td>送料</td>
-          <td>800</td>
+          <td class = "table-dark" style="width: 40%">送料</td>
+          <td style="width: 40%">800</td>
         </tr>
         <tr>
-          <td>商品合計</td>
-          <td><%= @sum %></td>
+          <td class = "table-dark" style="width: 40%">商品合計</td>
+          <td style="width: 40%"><%= @sum.to_s(:delimited) %></td>
         </tr>
         <tr>
-          <td>請求金額</td>
-          <td><%= @sum + 800 %></td>
+          <td class = "table-dark" style="width: 40%">請求金額</td>
+          <td style="width: 40%"><%= (@sum + 800).to_s(:delimited) %></td>
         </tr>
       </table>
-      
+    </div>
+  </div>
+
       <table>
         <tr>
           <th>支払い方法</th>
@@ -60,7 +66,7 @@
           </td>
         </tr>
       </table>
-      
+
       <%= form_with model: @order_new , url: "/orders" , local:true do |f| %>
         <%= f.hidden_field :customer_id, value: current_customer.id %>
         <%= f.hidden_field :payment_method, value:  @order.payment_method %>
@@ -69,8 +75,7 @@
         <%= f.hidden_field :total_payment, value: @sum + 800%>
         <%= f.hidden_field :address, value: @order.address%>
         <%= f.hidden_field :name, value: @order.name %>
-        <%= f.submit "注文を確定する" %>
+        <%= f.submit "注文を確定する",class: "btn btn-dark" %>
       <% end %>
     </div>
-  </div>
 </div>

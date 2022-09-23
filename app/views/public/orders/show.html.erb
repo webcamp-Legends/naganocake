@@ -10,8 +10,8 @@
       <!--注文情報テーブル-->
       <table class="table table-bordered">
         <tr>
-          <td>注文日</td>
-          <td><%=@order.created_at %></td>
+          <td style="width:30%">注文日</td>
+          <td style="width:70%"><%=@order.created_at.strftime('%Y/%m/%d') %></td>
         </tr>
         <tr>
           <td>配送先</td>
@@ -22,9 +22,9 @@
           <td><%=@order.payment_method_i18n %></td>
         </tr>
         <tr>
-          <td>
-            ステータス
-          </td>
+          <th>
+            注文ステータス
+          </th>
           <td>
             <%=@order.order_status_i18n %>
           </td>
@@ -39,7 +39,7 @@
           <td>
             商品合計
           </td>
-          <td>
+          <td style="width:50%">
             <%=@order.total_payment.to_s(:delimited)%>
           </td>       
         </tr>
@@ -68,10 +68,10 @@
     <div class="col-8">
       <table class="table table-bordered">
         <thead>
-          <td>商品</td>
-            <td>単価　(税込)</td>
-          <td>個数</td>
-          <td>小計</td>
+          <th style="width:60%">商品</th>
+          <th style="width:20%">単価（税込み）</th>
+          <th style="width:10%">個数</th>
+          <th style="width:10%">小計</th>
         </thead>
        <% @order_details.each do |order_detail| %>
        <tr>

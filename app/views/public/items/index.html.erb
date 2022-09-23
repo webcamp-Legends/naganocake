@@ -1,32 +1,38 @@
-<div class ="container mt-5">
-  <div class ="row align-items-end">
-    <h3 >商品一覧</h3><p>　(全<%= @items.count %>件)</p>
-  </div>
-      <div class ="row ms-auto">
+<div class ="container-fluid">
 
-        <% @items.each do |item| %>
-          <table class = "col-3 pl-15">
-            <tr>
-              <td>
-                <%= link_to item_path(item.id) do %>
-                  <%= image_tag item.image,size: "200x200" %>
-                <% end %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <%= link_to item.name,item_path(item.id), class: "text-dark" %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                ¥<%= link_to (item.price* 1.1).round.to_s(:delimited),item_path(item.id), class: "text-dark" %>
-              </td>
-            </tr>
-          </table>
-        <% end %>
-      </div>
+  <div class ="row">
+    <div class ="col-4 justify-content-end d-flex">
+      <h3>商品一覧</h3><p>　(全<%= @items.count %>件)</p>
+    </div>
+  </div>
+  <div class ="row">
+    <div class ="col-2 ml-4">
+      <%= render "public/items/genre" %>
+    </div>
+    <div class ="col-9">
+      <% @items.each do |item| %>
+        <table class = "col-2 mb-3  d-inline-block">
+          <tr>
+            <td>
+              <%= link_to item_path(item.id) do %>
+                <%= image_tag item.image,size: "150x150" %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= link_to item.name,item_path(item.id), class: "text-dark" %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              ¥<%= link_to (item.price* 1.1).round.to_s(:delimited),item_path(item.id), class: "text-dark" %>
+            </td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
 
         <%= paginate @items %>
-
 </div>
