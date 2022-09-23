@@ -11,7 +11,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-    @order = current_customer.orders.find(params[:id])
+    @order=current_customer.orders.find(params[:id])
     @order_details=@order.order_details.all
   end
 
@@ -34,7 +34,7 @@ class Public::OrdersController < ApplicationController
     end
     @cart_items = current_customer.cart_items
     @order_new = Order.new
-    redirect_to :confirm
+    render :confirm
   end
 
   def create

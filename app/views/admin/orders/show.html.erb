@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row">
     <div class="col-6 pl-5 ml-5 my-5">
@@ -25,7 +26,7 @@
         </tr>
         <tr>
           <td><h5 class="font-weight-bold">支払方法</h5></td>
-          <td><%=@order.payment_method %></td>
+          <td><%=@order.payment_method_i18n %></td>
         </tr>
         <tr>
           <td><h5 class="font-weight-bold">注文ステータス</h5></td>
@@ -49,7 +50,7 @@
             <th>数量</th>
             <th>小計</th>
             <th>製作ステータス</th>
-
+            
           </tr>
           <% @order.order_details.each do |order_detail| %>
           <tr>
@@ -58,14 +59,14 @@
             <td><%= order_detail.amount %></td>
               <% total_price= order_detail.amount * order_detail.item.add_tax_price %>
             <td><%= total_price.to_s(:delimited) %></td>
+           
             <td colspan="2">
-              <%= form_with model: order_detail, url: admin_orders_detail_path(order_detail.id), method: :patch, local: true do |f| %>
+              <%= form_with model: order_detail, url: admin_order_detail_path(order_detail.id), method: :patch, local: true do |f| %>
                 <%= f.hidden_field :order_detail_id, :value => order_detail.id %>
-                <%= f.select :making_status, OrderDetail.making_statuses.keys %>
+                <%= f.select :making_status, OrderDetail.making_statuses_i18n.keys%>
                 <%= f.submit "更新", class: "btn btn-outline-success ml-2" %>
               <% end %>
             </td>
-            <td></td>
           </tr>
           <% end %>
         </table>
