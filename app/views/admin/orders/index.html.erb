@@ -17,12 +17,14 @@
 
         <% @orders.each do |order| %>
           <tr>
+
             <td class = "align-middle">
               <%=link_to admin_order_path order do %>
               <%= order.created_at.strftime('%Y/%m/%d') %>
               <% end %>
             </td>
             <td class = "align-middle"><br><%= order.name %></td>
+
             <td class = "align-middle">
               <% order.order_details.each do |item| %>
             		<%= item.amount %>

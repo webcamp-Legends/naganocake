@@ -7,11 +7,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
+    @orders = current_customer.orders.all
   end
 
   def show
-    @order=Order.find(params[:id])
+    @order=current_customer.orders.find(params[:id])
     @order_details=@order.order_details.all
   end
 
