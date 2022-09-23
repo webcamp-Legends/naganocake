@@ -45,7 +45,7 @@ Rails.application.routes.draw do
 
     resources :orders,only:[:show, :update]
 
-    resources :orders_details,only:[:update]
+    resources :order_details,only:[:update]
   end
 
 
