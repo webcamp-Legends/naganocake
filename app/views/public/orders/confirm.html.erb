@@ -26,6 +26,7 @@
             <td class = "align-middle">
               <%=image_tag cart_item.item.image,size:"50x50" %>
               <%= cart_item.item.name %>
+
             </td class = "align-middle">
             <td class = "align-middle"><%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
             <td class = "align-middle"><%= cart_item.amount %></td>
@@ -34,6 +35,7 @@
             <% (@total += cart_item.subtotal).to_s(:delimited) %>
             <% @total %>
           </tr>
+        <% (@total += cart_item.subtotal) %>
         <% end %>
       </table>
     </div>
