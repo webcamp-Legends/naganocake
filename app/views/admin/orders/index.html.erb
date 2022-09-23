@@ -19,6 +19,11 @@
           <tr>
             <td class = "align-middle"><%= order.created_at.strftime('%Y/%m/%d') %></td>
             <td class = "align-middle"><%= order.name %></td>
+            <%=link_to admin_order_path order do %>
+
+<%= order.created_at.strftime('%Y/%m/%d') %>
+
+<% end %>
             <td class = "align-middle">
               <% order.order_details.each do |item| %>
             		<%= item.amount %>
