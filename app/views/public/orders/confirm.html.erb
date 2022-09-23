@@ -6,48 +6,51 @@
   </div>
 
   <div class="row col-12 px-0">
-    <div class="col-7 d-flex">
+    <div class="col-8">
       <table class = "table table-bordered ">
         <thead>
         <tr>
-          <td class = "table-dark">商品名</td>
-          <td class = "table-dark">単価(税込)</td>
-          <td class = "table-dark">数量</td>
-          <td class = "table-dark">小計</td>
+          <td class = col-4>商品名</td>
+          <td class = col-1>単価(税込)</td>
+          <td class = col-1>数量</td>
+          <td class = col-1>小計</td>
         </tr>
         </thead>
 
         <% @sum = 0 %>
+        <% @total = 0 %>
 
         <% @cart_items.each do |cart_item| %>
 
           <tr>
-            <td>
+            <td class = "align-middle">
               <%=image_tag cart_item.item.image,size:"100x100" %>
               <%= cart_item.item.name %>
-            </td>
-            <td><%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
-            <td><%= cart_item.amount %></td>
-            <% (@sum += cart_item.subtotal).to_s(:delimited) %>
-            <td><%= @sum %></td>
+            </td class = "align-middle">
+            <td class = "align-middle"><%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
+            <td class = "align-middle"><%= cart_item.amount %></td>
+            <% (@sum = cart_item.subtotal).to_s(:delimited) %>
+            <td class = "align-middle"><%= @sum %></td>
+            <% (@total += cart_item.subtotal).to_s(:delimited) %>
+            <% @total %>
           </tr>
         <% end %>
       </table>
     </div>
 
-    <div class="col-4 offset-1">
+    <div class="col-3 offset-1">
       <table class ="table-sm table-bordered ">
         <tr>
-          <td class = "table-dark" style="width: 40%">送料</td>
+          <td style="width: 40%">送料</td>
           <td style="width: 40%">800</td>
         </tr>
         <tr>
-          <td class = "table-dark" style="width: 40%">商品合計</td>
-          <td style="width: 40%"><%= @sum.to_s(:delimited) %></td>
+          <td style="width: 40%">商品合計</td>
+          <td style="width: 40%"><%= @total.to_s(:delimited) %></td>
         </tr>
         <tr>
-          <td class = "table-dark" style="width: 40%">請求金額</td>
-          <td style="width: 40%"><%= (@sum + 800).to_s(:delimited) %></td>
+          <td style="width: 40%">請求金額</td>
+          <td style="width: 40%"><%= (@total + 800).to_s(:delimited) %></td>
         </tr>
       </table>
     </div>
@@ -75,7 +78,7 @@
         <%= f.hidden_field :total_payment, value: @sum + 800%>
         <%= f.hidden_field :address, value: @order.address%>
         <%= f.hidden_field :name, value: @order.name %>
-        <%= f.submit "注文を確定する",class: "btn btn-dark" %>
+        <%= f.submit "注文を確定する",class: 'btn btn-outline-success' %>
       <% end %>
     </div>
 </div>
