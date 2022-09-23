@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
+    
   }
 
   scope module: :public do
@@ -25,8 +26,8 @@ Rails.application.routes.draw do
     get '/cart_items/destroy_all' => "cart_items#destroy_all"
 
 
-    
-    
+
+
     get "/orders/thanks" =>"orders#thanks"
     resources :orders,only:[:create, :index, :new, :edit, :update,:show]
     post "/orders/confirm" =>"orders#confirm"
