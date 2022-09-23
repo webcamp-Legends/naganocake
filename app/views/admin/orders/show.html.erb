@@ -25,7 +25,7 @@
         </tr>
         <tr>
           <td><h5 class="font-weight-bold">支払方法</h5></td>
-          <td><%=@order.payment_method %></td>
+          <td><%=@order.payment_method_i18n %></td>
         </tr>
         <tr>
           <td><h5 class="font-weight-bold">注文ステータス</h5></td>
@@ -53,6 +53,9 @@
           </tr>
           <% @order.order_details.each do |order_detail| %>
           <tr>
+            <td>
+              <p> credit_card </p>
+            </td>
             <td><%=order_detail.item.name %></td>
             <td><%= order_detail.item.add_tax_price.to_s(:delimited) %></td>
             <td><%= order_detail.amount %></td>
