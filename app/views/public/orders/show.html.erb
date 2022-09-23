@@ -40,7 +40,7 @@
             商品合計
           </td>
           <td style="width:50%">
-            <%=@order.total_payment.to_s(:delimited)%>
+            <%= (@order.total_payment - 800).to_s(:delimited)%>
           </td>
         </tr>
         <tr>
@@ -79,7 +79,7 @@
          <td><%= order_detail.item.add_tax_price.to_s(:delimited) %></td>
          <td><%= order_detail.amount %></td>
          <% total_price= order_detail.amount * order_detail.item.add_tax_price %>
-         <td><%= total_price.to_s(:delimited) %> </td
+         <td><%= total_price.to_s(:delimited) %> </td>
        </tr>
        <% end %>
       </table>

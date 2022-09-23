@@ -1,5 +1,12 @@
 <% if current_customer.cart_items.count==0 %>
-<h3>カート内に商品がありません</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-sm-12 mx-2 mx-sm-auto rounded py-5 my-5">
+      <h3>カート内に商品がありません</h3>
+    </div>
+  </div>
+</div>
+
 <% else %>
 <div class="container">
   <div class="row">
