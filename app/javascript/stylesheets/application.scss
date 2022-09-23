@@ -1,1 +1,37 @@
 @import '~bootstrap/scss/bootstrap';
+
+ *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ }
+
+
+ header {
+  background-color: #000000;
+ }
+
+
+ .pagination {
+  justify-content: center;
+  margin-top: 30px;
+ }
+
+ .about-image-vw{
+  width : 30vw;
+  height: auto;
+ }
+ main {
+   min-height: 100vh;
+   position: relative;
+   padding: 200px 0;
+ }
+
+ footer {
+  background-color: #000000;
+  height: 50px;
+ }
+
+.cart_tag{
+  background-color :red;
+}

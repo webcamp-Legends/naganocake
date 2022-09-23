@@ -1,2 +1,54 @@
-<h1>Admin::Items#show</h1>
-<p>Find me in app/views/admin/items/show.html.erb</p>
+<div class="container mt-5">
+
+  <h3>商品詳細</h3>
+
+  <div class="row d-flex justify-content-center">
+
+      <div class="col-lg-3 d-flex justify-content-center">
+        <%= image_tag @item.image,size: "400x400" %><br>
+      </div>
+
+      <div class="col-lg-5 d-flex justify-content-center">
+        <table class = "table-sm">
+          <body>
+            <tr>
+              <td>商品名</td>
+              <td><%= @item.name %></td>
+            </tr>
+            <tr>
+              <td>商品説明</td>
+              <td><%= @item.introduction %></td>
+            </tr>
+            <tr>
+              <td>ジャンル</td>
+              <td><%= @item.genre.name %></td>
+            </tr>
+            <tr>
+              <td>税込価格<br>(税抜き価格)</td>
+              <td><%= @item.price %>(<%= @item.add_tax_price.to_s(:delimited) %>)円</td>
+            </tr>
+            <tr>
+              <td>販売ステータス　</td>
+              <td><% if @item.is_active == true %>
+              <p class= "text-success my-auto">
+                <%= @item.is_active_check %>
+              </p>
+            <% else %>
+              <p class= "text-black-50 my-auto">
+                <%= @item.is_active_check %>
+              </p>
+            <% end %></td>
+            </tr>
+
+            <tr>
+              <td><%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-sm btn-outline-success" %></td>
+            </tr>
+
+          </body>
+
+        </table>
+
+      </div>
+
+  </div>
+</div>
