@@ -34,7 +34,7 @@ class Public::OrdersController < ApplicationController
     end
     @cart_items = current_customer.cart_items
     @order_new = Order.new
-    redirect_to :confirm
+    render :confirm
   end
 
   def create
