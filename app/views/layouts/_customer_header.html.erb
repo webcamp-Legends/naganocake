@@ -1,30 +1,35 @@
 <!--会員側ヘッダー-->
-<nav class ="navbar navbar-expand-lg">
+<nav class ="navbar navbar-expand-lg px-0 py-0">
     <div class="collapse navbar-collapse">
-      <div class ="col">
-      <h1 class="outline-secondary pb-auto">
+      <div class ="col-sm-4 col-lg-5">
+      <h1 class="outline-secondary my-1">
         <%= link_to root_path do %>
-        <%= image_tag 'logo.png',size: "150x150" %></h1>
+        <%= image_tag 'Moods for Days.png',size: "150x100" %></h1>
         <% end %>
       </div>
-
-        <div class ="col-sm-4 col-lg-６ text-light">
-          <span>ようこそ <%= current_customer.last_name %> <%= current_customer.first_name %> さん</span>
-          <ul class="navbar-nav my-3">
-            <li class="nav-item mr-3">
-              <%=link_to "マイページ",customers_path,class: "btn btn-sm btn-outline-light" %>
-            </li>
-            <li class="nav-item mr-3">
-              <%= link_to "商品一覧",items_path,class: "btn btn-sm btn-outline-light"%>
-            </li>
-            <li class="nav-item mr-3">
-              <%= link_to "カート",cart_items_path,class: "btn btn-sm btn-outline-light" %>
-            </li>
-            <li class="nav-item mr-3">
-              <%= link_to "ログアウト",destroy_customer_session_path,method: :delete ,class: "btn btn-sm btn-outline-light" %>
-            </li>
-          </ul>
-            <%= render "layouts/serch" %>
+      
+      <div class ="col-sm-4 col-lg-2 text-light">
+        <span>ようこそ <%= current_customer.last_name %> <%= current_customer.first_name %> さん</span>
+      </div>
+      
+      <div class ="col-sm-4 col-lg-5 text-light">
+        <ul class="navbar-nav my-3 d-md-flex justify-content-md-end">
+          <li class="nav-item mr-4">
+            <%=link_to "マイページ",customers_path,class: "btn btn-sm btn-outline-light" %>
+          </li>
+          <li class="nav-item mr-4">
+            <%= link_to "商品一覧",items_path,class: "btn btn-sm btn-outline-light"%>
+          </li>
+          <li class="nav-item mr-4">
+            <%= link_to "カート",cart_items_path,class: "btn btn-sm btn-outline-light" %>
+          </li>
+          <li class="nav-item mr-4">
+            <%= link_to "ログアウト",destroy_customer_session_path,method: :delete ,class: "btn btn-sm btn-outline-light" %>
+          </li>
+        </ul>
+        <div class="d-md-flex justify-content-md-end mr-4 my-2">
+          <%= render "layouts/serch" %>
         </div>
+      </div>
     </div>
 </nav>
