@@ -5,13 +5,13 @@ class Admin::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
+    @orders = Order.page(params[:page]).per(10)
   end
 
   def update
     @order= Order.find(params[:id])
     @order_details= @order.order_details
-    
+
     @order.update(order_params)
     redirect_to admin_order_path(@order)
   end

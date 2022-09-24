@@ -1,41 +1,43 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-6 col-sm-12 my-5">
+  <div class="row px-0">
+    <div class="mt-5 mb-4">
       <h3>注文履歴一覧</h3>
     </div>
   </div>
 
   <div class="row col-12 px-0">
+    <table class= "table">
+      <tr>
+        <td class= "col-3 px-0 py-2 pl-1 table-dark">購入時</td>
+        <td class= "col-3 px-0 py-2 pl-1 table-dark">購入者</td>
+        <td class= "col-3 px-0 py-2 pl-1 table-dark">注文個数</td>
+        <td class= "col-3 px-0 py-2 pl-1 table-dark">注文ステータス</td>
+      </tr>
 
-      <table class= "table">
-        <tr>
-          <td class= "col-3 px-0 py-2 pl-1 table-dark">購入時</td>
-          <td class= "col-3 px-0 py-2 pl-1 table-dark">購入者</td>
-          <td class= "col-3 px-0 py-2 pl-1 table-dark">注文個数</td>
-          <td class= "col-3 px-0 py-2 pl-1 table-dark">注文ステータス</td>
-        </tr>
+      <% @orders.each do |order| %>
+        <tr class="border-bottom">
 
-        <% @orders.each do |order| %>
-          <tr>
+          <td class = "align-middle">
+            <%=link_to admin_order_path order do %>
+            <%= order.created_at.strftime('%Y/%m/%d') %>
+            <% end %>
+          </td>
+          <td class = "align-middle"><%= order.name %></td>
 
-            <td class = "align-middle">
-              <%=link_to admin_order_path order do %>
-              <%= order.created_at.strftime('%Y/%m/%d') %>
-              <% end %>
-            </td>
-            <td class = "align-middle"><%= order.name %></td>
-
-            <td class = "align-middle">
-              <% @amount = 0 %>
-              <% order.order_details.each do |item| %>
-                <% (@amount += item.amount).to_s %>
-            	<% end %>
-          		<%= @amount %>
-            </td>
-            <td class = "align-middle"><%= order.order_status_i18n %></td>
-        <% end %>
-      </table>
-
+          <td class = "align-middle">
+            <% @amount = 0 %>
+            <% order.order_details.each do |item| %>
+              <% (@amount += item.amount).to_s %>
+          	<% end %>
+        		<%= @amount %>
+          </td>
+          <td class = "align-middle"><%= order.order_status_i18n %></td>
+      <% end %>
+    </table>
+    <div class ="row col-12">
+      <div class ="col">
+        <span class="textt-center"><%= paginate @orders %></span>
+      </div>
     </div>
   </div>
 </div>
