@@ -7,7 +7,7 @@
     <div class ="col-8 offset-1">
       <div class ="card  mt-5" style="max-width: 800px">
         <%= image_tag 'top.png', class: "card-img mx-auto" %>
-        <p class ="text-light card-img-overlay d-flex align-items-end justify-content-end ">
+        <p class ="text-light card-img-overlay d-flex align-items-end justify-content-end">
         ようこそながのCAKEへ!<br>
         このサイトは、ケーキ販売のECサイトになります。<br>
         会員でない方も商品の閲覧はできますが、<br>
@@ -20,20 +20,21 @@
   <div class ="row mt-4 mb-0">
     <div class ="col-2 mt-5 ml-4">
     </div>
-    <h5 class ="col-8 offset-1">新着商品</h5>
+    <h5 class ="col-8 offset-1"><strong>新着商品</strong></h5>
   </div>
   
   <div class ="row">
     <div class ="col-2 mt-5 ml-4">
     </div>
-    <div class ="col-8  offset-1 d-flex">
+    <div class ="col-8 offset-1">
+      <div class ="d-flex">
     <% @items.each do |item| %>
-      <table  class="col-2 pr-5 mr-5 ml-0 d-flex justify-content-end">
+      <table  class="col-2 pr-auto mr-auto pl-0 ml-0 d-flex justify-content-start">
         <tbody>
           <tr>
             <td>
               <%= link_to item_path(item.id) do %>
-                <%= image_tag item.image,size: "100x100" %>
+                <%= image_tag item.image,size: "150x150" %>
               <% end %>
             </td>
           </tr>
@@ -49,5 +50,6 @@
           </tr>
       </table>
     <% end %>
+    </div>
   </div>
 </div>
