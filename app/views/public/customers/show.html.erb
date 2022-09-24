@@ -21,39 +21,39 @@
       <table class="table table-bordered ">
         <body>
           <tr>
-            <td style="width: 20%">氏名</td>
+            <td class="table-dark" style="width: 20%">氏名</td>
             <td>
               <%= @customer.last_name %>
               <%= @customer.first_name %>
             </td>
           </tr>
           <tr>
-            <td>カナ</td>
+            <td class="table-dark">カナ</td>
             <td>
               <%= @customer.last_name_kana %>
               <%= @customer.first_name_kana %>
           </td>
       　   </tr>
           <tr>
-            <td>郵便番号</td>
+            <td class="table-dark">郵便番号</td>
             <td>
               <%= @customer.post_code %>
             </td>
           </tr>
           <tr>
-            <td>住所</td>
+            <td class="table-dark">住所</td>
             <td>
               <%= @customer.address %>
             </td>
           </tr>
           <tr>
-            <td>電話番号</td>
+            <td class="table-dark">電話番号</td>
             <td>
               <%= @customer.phone_number %>
             </td>
           </tr>
           <tr>
-            <td>メールアドレス</td>
+            <td class="table-dark">メールアドレス</td>
             <td>
               <%= @customer.email %>
             </td>
@@ -79,9 +79,9 @@
           </td>
           <td>
             <%= link_to "一覧を見る",orders_path,class: 'btn btn-outline-primary' %>
-          </td> 
+          </td>
         </tr>
       </table>
     </div>
   </div>
-</div>    
+</div>
