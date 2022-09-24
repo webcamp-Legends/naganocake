@@ -20,15 +20,16 @@
   <div class ="row mt-4 mb-0">
     <div class ="col-2 mt-5 ml-4">
     </div>
-    <h5 class ="col-8 offset-1">新着商品</h5>
+    <h5 class ="col-8 offset-1"><strong>新着商品</strong></h5>
   </div>
   
   <div class ="row">
     <div class ="col-2 mt-5 ml-4">
     </div>
-    <div class ="col-8  offset-1 d-flex">
+    <div class ="col-8 offset-1">
+      <div class ="d-flex">
     <% @items.each do |item| %>
-      <table  class="col-2 pr-5 mr-5 ml-0 d-flex justify-content-end">
+      <table  class="col-2 pr-auto mr-auto pl-0 ml-0 d-flex justify-content-start">
         <tbody>
           <tr>
             <td>
@@ -49,5 +50,6 @@
           </tr>
       </table>
     <% end %>
+    </div>
   </div>
 </div>
