@@ -7,16 +7,16 @@
     <div class="col">
       <table class="table table-borderless">
         <tr>
-          <td><%= f.label :post_code,"郵便番号" %>
+          <td class="table-dark border-bottom-lignt"><%= f.label :post_code,"郵便番号" %>
           </td>
           <td><%= f.text_field :post_code,placeholder: '0000000' %></td>
         </tr>
         <tr>
-          <td><%= f.label :address,"住所(ハイフンなし)" %></td>
+          <td class="table-dark border-lignt"><%= f.label :address,"住所(ハイフンなし)" %></td>
           <td><%= f.text_field :address, :size=>"46" ,placeholder: '東京都渋谷代々木神園町0-0'%></td>
-        </tr> 
+        </tr>
         <tr>
-          <td>
+          <td class="table-dark">
             <%= f.label :address,"住所(ハイフンなし)" %></td>
           <td>
             <%= f.text_field :name,placeholder: '宛名' %>
