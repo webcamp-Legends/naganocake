@@ -12,7 +12,7 @@
           <th style="width:20%"><h5 class="font-weight-bold">購入者</h5></th>
           <td>
             <%= link_to admin_customer_path(@order.customer_id) do %>
-              <%=@order.customer.last_name+@order.customer.first_name %>
+              <%= @order.customer.last_name %>　<%= @order.customer.first_name %>
             <% end %>
           </td>
         </tr>
@@ -33,7 +33,7 @@
           <td>
             <%= form_with model: @order,url: admin_order_path, method: :patch do |f| %>
               <%= f.select :order_status, Order.order_statuses.keys.map{|k| [I18n.t("enums.order.order_status.#{k}"), k]} %>
-              <%= f.submit "更新",class:"btn btn-outline-success" %>
+              <%= f.submit "更新",class: "btn btn-sm btn-outline-success" %>
             <% end %>
           </td>
         </tr>
@@ -43,7 +43,8 @@
   <div>
     <div class="row">
       <div class="col-8">
-        <table class="table table-borderless">
+        <table class="table">
+          <thead class ="table-dark">
           <tr>
             <th style="width:25%">商品名</th>
             <th>単価(税込み)</th>
@@ -51,6 +52,7 @@
             <th>小計</th>
             <th>製作ステータス</th>
           </tr>
+          </thead>
           <% @order.order_details.each do |order_detail| %>
           <tr>
             <td><%=order_detail.item.name %></td>
@@ -62,28 +64,28 @@
               <%= form_with model: order_detail, url: admin_order_detail_path(order_detail.id), method: :patch, local: true do |f| %>
                 <%= f.hidden_field :order_detail_id, :value => order_detail.id %>
                 <%= f.select :making_status, OrderDetail.making_statuses_i18n.keys.map{|k| [I18n.t("enums.order_detail.making_status.#{k}"), k]} %>
-                <%= f.submit "更新", class: "btn btn-outline-success ml-2" %>
+                <%= f.submit "更新", class: "btn btn-sm btn-outline-success ml-2" %>
               <% end %>
             </td>
           </tr>
           <% end %>
         </table>
       </div>
-      <div class="col-3 mt-5">
-        <table class="table table-borderless">
+      <div class="col-3 mt-5 offset-1">
+        <table class="table table-bordered">
           <tr>
-            <th><h5 class="font-weight-bold">商品合計</h5></th>
-            <td>
+            <th class ="table-dark"><h5 class="font-weight-bold">商品合計</h5></th>
+            <td class="font-weight-bold">
              <%=@order.total_payment.to_s(:delimited)%>円
             </td>
           </tr>
           <tr>
-            <th><h5 class="font-weight-bold">送料</th>
-            <td><%=@order.shipping_cost %>円</td>
+            <th class ="table-dark"><h5 class="font-weight-bold">送料</th>
+            <td class="font-weight-bold"><%=@order.shipping_cost %>円</td>
           </tr>
           <tr>
-            <td><h5 class="font-weight-bold">請求額合計</h5></td>
-            <td class="text-secondary font-weight-bold">
+            <td class ="table-dark"><h5 class="font-weight-bold">請求額合計</h5></td>
+            <td class="font-weight-bold">
               <% total_price=@order.total_payment+@order.shipping_cost %>
               <%= total_price.to_s(:delimited)%>円
             </td>
@@ -93,3 +95,4 @@
     </div>
   </div>
 </div>
+

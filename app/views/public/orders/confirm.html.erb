@@ -1,14 +1,12 @@
-<div class="container">
-  <div class="row col-12 px-5 ml-5">
-    <div class="col-md-6 col-sm-12 rounded ml-5 px-5 my-4">
-      <h3>注文情報確認</h3>
-    </div>
+<div class="container mt-5">
+  <div class="row col-12 mb-3">
+    <h3 class="col my-4">注文情報確認</h3>
   </div>
 
   <div class="row col-12">
     <div class="col-8">
       <table class = "table table-bordered ">
-        <thead>
+        <thead class="table-dark">
         <tr>
           <td class = "col-4 px-0 pl-1">商品名</td>
           <td class = "col-1 px-0 pl-1">単価(税込)</td>
@@ -24,8 +22,10 @@
 
           <tr>
             <td class = "align-middle">
-              <%=image_tag cart_item.item.image,size:"50x50" %>
-              <%= cart_item.item.name %>
+              <%= link_to item_path(cart_item.item.id) do %>
+                <%=image_tag cart_item.item.image,size: "50x50" %>
+                <span class ="text-dark"><%= cart_item.item.name %></span>
+              <% end %>
             </td class = "align-middle">
             <td class = "align-middle"><%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
             <td class = "align-middle"><%= cart_item.amount %></td>
@@ -41,15 +41,15 @@
     <div class="col-3 offset-1 mx-0">
       <table class ="table-sm table-bordered ">
         <tr>
-          <td style="width: 40%">送料</td>
+          <td class="table-dark" style="width: 40%">送料</td>
           <td style="width: 40%">800</td>
         </tr>
         <tr>
-          <td style="width: 40%">商品合計</td>
+          <td class="table-dark" style="width: 40%">商品合計</td>
           <td style="width: 40%"><%= @total.to_s(:delimited) %></td>
         </tr>
         <tr>
-          <td style="width: 40%">請求金額</td>
+          <td class="table-dark" style="width: 40%">請求金額</td>
           <td style="width: 40%"><%= (@total + 800).to_s(:delimited) %></td>
         </tr>
       </table>
@@ -57,7 +57,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-12 d-flex mt-5">
+    <div class="col-md-12 d-flex mt-4">
       <h4 class= "mx-3"><strong>支払方法</strong></h4>
       <%= @order.payment_method_i18n %>
     </div>
