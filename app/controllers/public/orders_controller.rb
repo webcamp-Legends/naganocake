@@ -11,7 +11,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders.all
+    @orders = Order.page(params[:page]).per(6)
   end
 
   def show
@@ -61,7 +61,7 @@ class Public::OrdersController < ApplicationController
       end
       current_customer.cart_items.destroy_all
       redirect_to orders_thanks_path
-    
+
   end
 
   private
