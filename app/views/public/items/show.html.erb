@@ -1,20 +1,20 @@
-<div class ="container-fluid d-flex">
-  <div class ="row mt-5">
-    <div class ="col ml-4">
+<div class ="container-fluid d-flex mt-5 pt-5">
+  <div class ="row col-12 mt-5">
+    <div class ="col-3 ml-4">
       <%= render "public/items/genre" %>
     </div>
-      <div class="col d-flex justify-content-center">
-        <table class ="table-sm">
-          <tbody>
-            <tr><%= image_tag @item.image,size: "400x400" %></tr>
-            <tr>
-              <table class ="table table-borderless">
+      <div class="col-6 offset-1 d-flex shadow-lg px-4 py-4">
+        <table>
+            <tr><td><%= image_tag @item.image,size: "400x400" %></td></tr>
+             <table class ="table table-sm table-borderless ml-5">
                 <tr><td></td></tr>
                 <tr><td></td></tr>
                 <tr><td></td></tr>
-                <tr><td><%= @item.name %></td></tr>
-                <tr><td><%= @item.introduction %></td></tr>
-                <tr><td>¥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</td></tr>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr><td><h5><%= @item.name %></h5></td></tr>
+                <tr class ="mt-0 pt-0"><td><%= @item.introduction %></td></tr>
+                <tr><td><h5>¥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</h5></td></tr>
                 <tr><td>
                   <%= form_with model: @cart_item,method: :post,multipart: true do |f| %>
                     <%=f.hidden_field :name, :value =>@item.name %>
@@ -30,9 +30,6 @@
                   <% end %>
                 </td></tr>
               </table>
-
-            </tr>
-          </tbody>
         </table>
       </div>
     </div>
