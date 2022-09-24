@@ -4,7 +4,7 @@
 
       <h3 class = "my-4">商品編集</h3>
 
-      <%= form_with model: @item,url: admin_items_path,method: :post do |f| %>
+      <%= form_with model: @item,url: admin_item_path,method: :patch do |f| %>
       <table class ="table-sm">
         <tr>
           <td><%= f.file_field :image, accept: "image/*" %></td>
@@ -28,7 +28,7 @@
           <td><%= f.radio_button :is_active, :false %> <%= f.label :is_active_false, "販売停止中" %></td>
         </tr>
       </table>
-      <%= f.submit "新規登録", class: "btn btn-sm btn-outline-success" %>
+      <%= f.submit "編集", class: "btn btn-sm btn-outline-success" %>
       <% end %>
     </div>
   </div>

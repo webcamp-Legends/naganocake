@@ -1,31 +1,37 @@
 <!--admin login後のヘッダー-->
-<nav class ="navbar navbar-expand-lg">
+<nav class ="navbar navbar-expand-lg px-0 py-0">
     <div class="collapse navbar-collapse">
-      <div class ="col">
-      <h1 class="outline-secondary pb-auto">
+      <div class ="col-sm-4 col-lg-5">
+      <h1 class="outline-secondary my-1">
         <%= link_to root_path do %>
-        <%= image_tag 'logo.png',size: "150x150" %></h1>
+        <%= image_tag 'Moods for Days.png',size: "150x100" %></h1>
         <% end %>
       </div>
-      <div class ="col-sm-4 col-lg-4 text-light">
-        <ul class="navbar-nav ml-auto pb-3">
-          <li class="nav-item mr-3">
+      
+      <div class ="col-sm-4 col-lg-2">
+      </div>
+      
+      <div class ="col-sm-4 col-lg-5 text-light">
+        <ul class="navbar-nav my-3 d-md-flex justify-content-md-end">
+          <li class="nav-item mr-4">
             <%=link_to "商品一覧",admin_items_path,class: "btn btn-sm btn-outline-light" %>
           </li>
-          <li class="nav-item mr-3">
+          <li class="nav-item mr-4">
             <%= link_to "会員一覧",admin_customers_path,class: "btn btn-sm btn-outline-light"%>
           </li>
-          <li class="nav-item mr-3">
+          <li class="nav-item mr-4">
             <%= link_to "注文履歴一覧",admin_orders_path,class: "btn btn-sm btn-outline-light" %>
           </li>
-          <li class="nav-item mr-3">
+          <li class="nav-item mr-4">
             <%= link_to "ジャンル一覧",admin_genres_path,class: "btn btn-sm btn-outline-light" %>
           </li>
-          <li class="nav-item mr-1">
+          <li class="nav-item mr-4">
             <%= link_to "ログアウト",destroy_admin_session_path,method: :delete,class: "btn btn-sm btn-outline-light" %>
-          </li><br>
+          </li>
         </ul>
-            <%= render "layouts/serch" %>
+        <div class="d-md-flex justify-content-md-end mr-4 my-2">
+          <%= render "layouts/serch" %>
         </div>
+      </div>
     </div>
 </nav>
