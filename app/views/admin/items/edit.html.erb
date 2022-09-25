@@ -12,23 +12,23 @@
           <td class="col-4"><%= f.file_field :image, accept: "image/*" %></td>
         </tr>
         <tr>
-          <td class="col-4 table-dark"><%= f.label :name,"商品名" %></td>
+          <td class="col-4 table-dark border-top"><%= f.label :name,"商品名" %></td>
           <td class="col-4"><%= f.text_field :name, class: "col-10 px-0" %></td>
         </tr>
         <tr>
-          <td class="col-4 align-top table-dark"><%= f.label :introduction,"商品説明" %></td>
+          <td class="col-4 align-top table-dark border-top"><%= f.label :introduction,"商品説明" %></td>
           <td class="col-4"><%= f.text_area :introduction, class: "col-10 px-0",rows: "7" %></td>
         </tr>
         <tr>
-          <td class="col-4 table-dark"><%= f.label :genre_id,"ジャンル" %></td>
+          <td class="col-4 table-dark border-top"><%= f.label :genre_id,"ジャンル" %></td>
           <td class="col-4"><%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name), {prompt: "選択してください"}, class: "form-control-sm col-10 pl-1" %></td>
         </tr>
         <tr>
-          <td class="col-4 table-dark"><%= f.label :price,"税抜き価格" %></td>
+          <td class="col-4 table-dark border-top"><%= f.label :price,"税抜き価格" %></td>
           <td class="col-4"><%= f.text_field :price, class: "col-10 px-0" %>円</td>
         </tr>
         <tr>
-          <td class="col-4 table-dark">販売ステータス</td>
+          <td class="col-4 table-dark border-top">販売ステータス</td>
           <td class="col-4">
             <%= f.radio_button :is_active, :true, checked: true %><%= f.label :is_active_true,"販売中" %>
             <%= f.radio_button :is_active, :false %><%= f.label :is_active_false, "販売停止中" %>
