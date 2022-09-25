@@ -1,14 +1,14 @@
 <div class="container">
-  <div class="mb-5 mt-5">
+  <div class="mb-4 mt-5">
     <h3>会員一覧</h3>
   </div>
   <table class = "table">
     <thead class ="table-dark">
       <tr>
-        <th>会員ID</th>
-        <th>氏名</th>
-        <th>メールアドレス</th>
-        <th>ステータス</th>
+        <td>会員ID</td>
+        <td>氏名</td>
+        <td>メールアドレス</td>
+        <td>ステータス</td>
       </tr>
     </thead>
     <tbody>
@@ -23,9 +23,9 @@
         <td><%= customer.email %></td>
         <td>
           <% if customer.is_deleted == false %>
-            <p class="text-success">有効</p>
+            <span class="text-success">有効</span>
           <% else %>
-            <p class=text-secondary>退会</p>
+            <span class=text-secondary>退会</span>
           <% end %>
         </td>
       <% end %>
