@@ -1,5 +1,5 @@
-  <%= form_with url: search_path do |f| %>
-    <%= f.text_field :name %>
+  <%= form_with url: search_path, local: true, method: :get do |f| %>
+    <%= f.text_field :word,value: @keyword %>
     <%= f.submit "検索", class: "btn btn-sm btn-outline-light" %>
   <% end %>
 

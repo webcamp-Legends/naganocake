@@ -22,5 +22,8 @@ class Item < ApplicationRecord
       "販売停止中"
     end
   end
-
+  
+  def self.search(word)
+    @item = Item.where("name LIKE?","%#{word}%")
+  end
 end
