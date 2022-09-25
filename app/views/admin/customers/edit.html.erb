@@ -41,7 +41,7 @@
         <td class ="pl-3"><%= f.email_field :email, autocomplete: "email",placeholder: 'sample@example.com' %></td>
       </tr>
       <tr>
-        <td class ="table-dark pl-4"><%= f.label :is_deleted,"退会ステータス" %></td>
+        <td class ="table-dark pl-4"><%= f.label :is_deleted,"会員ステータス" %></td>
         <td class ="pl-3">
           <%= f.radio_button :is_deleted, :false %><%= f.label :is_deleted_false,"有効" %>
           <%= f.radio_button :is_deleted, :true %><%= f.label :is_deleted_true,"退会" %>
