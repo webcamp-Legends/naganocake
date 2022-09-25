@@ -6,7 +6,7 @@
   </div>
   <div class="row col-8 d-flex mx-auto">
     <%= form_with model: @item,url: admin_items_path,method: :post do |f| %>
-      <table class ="table-sm table">
+      <table class ="table-sm">
         <tr>
           <td class="col-4 table-dark"><%= f.label :name,"商品画像" %></td>
           <td class="col-4"><%= f.file_field :image, accept: "image/*" %></td>
